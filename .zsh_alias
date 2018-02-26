@@ -1,0 +1,16 @@
+# Utility aliases
+alias ll="ls -ltr"
+alias curlH='curl -H "X-IMDb-API-Client: ssiddha-1" -H "X-IMDb-API-User: ur1234567" -H "Content-Type: application/json"'
+
+# Git aliases
+alias gl="git log --color --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gsh="git stash apply;git stash clear;git stash"
+alias g5="git log -5 --graph --pretty=oneline --abbrev-commit"
+
+# Security aliases
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias date="date -R"
+alias gr="grep -inr --exclude-dir=build --exclude-dir=.svn --exclude-dir=.git --exclude=tags"
+alias fnd="find . -not -path \"*.git*\" -not -path \"*.svn*\""
