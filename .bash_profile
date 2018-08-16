@@ -8,3 +8,11 @@ shopt -s cdspell
 bind 'set completion-ignore-case on'
 
 source ~/git-completion.bash
+
+export HISTCONTROL=ignoreboth:erasedups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+shopt -s histappend
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

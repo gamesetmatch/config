@@ -32,11 +32,13 @@ set ic                                                                          
 
 set pastetoggle=<leader>p                                                                          "toggle to lose indentation while pasting
 
-"set previewheight=100                                                                              "sets the preview height for definition previews
+"set previewheight=100                                                                             "sets the preview height for definition previews
 
 set tags=./tags;/                                                                                  "sets tags file
 
-set vb                                                                                             "sets visual bell instead of audio
+"set vb                                                                                            "sets visual bell instead of audio
+
+set belloff=all                                                                                    "disable audio bells
 
 highlight LineNr ctermfg=grey       "changes line number to grey
 
