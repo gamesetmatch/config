@@ -1,28 +1,37 @@
+# Backward word-byword delete
 my-backward-delete-word() {
     local WORDCHARS=${WORDCHARS/\//}
     zle backward-delete-word
 }
 zle -N my-backward-delete-word
 
+# word navigation
 bindkey ^W my-backward-delete-word
 bindkey ^f forward-word
 bindkey ^b backward-word
 bindkey ^U backward-kill-line
 
-# zsh history search
+# zsh history search, this binds dp and down keys to a history search
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
+# customise prompt
 autoload -U colors && colors
-export PROMPT="
-%{$fg[red]%}%T %{$fg[magenta]%}%D{%d-%m-%Y} %{$fg[yellow]%}[%~]%{$reset_color%}
-%{$fg[cyan]%}%n@%m $%{$fg[default]%} "
+
+source "$(brew --prefix)/opt/zsh-git-prompt/zshrc.sh"
+export PROMPT='
+%{$fg[blue]%}%B%n%b@%{$fg[blue]%}%B%m%b %{$fg[yellow]%}[%~] $(git_super_status) %{$fg[default]%}$ '
+
+#PROMPT='$(git_super_status) %# '
+# line drawing https://superuser.com/a/846133
+setopt promptsubst
+PS1="%{$fg[green]%}%U${(r:$COLUMNS:: :)}%u $PS1"
 
 export AUTO_TITLE_SCREENS="NO"
-export RPROMPT=
+export RPROMPT="%{$fg[red]%}[%T %D{%d-%m-%Y}]%{$reset_color%}"
 export TERM=xterm
 export JAVA_HOME=$(/usr/libexec/java_home)
 export NODE_HOME=/usr/local/bin/node
