@@ -1,16 +1,22 @@
 # Utility aliases
-alias ll="ls -ltr"
-alias curlH='curl -H "X-IMDb-API-Client: ssiddha-1" -H "X-IMDb-API-User: ur1234567" -H "Content-Type: application/json"'
+alias ll="ls -ltr";
+alias ws="cd ~/workspaces";
+
+# Python aliases
+alias python="python3"
+
+# Aws aliases
 
 # Git aliases
-alias gl="git log --color --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias gsh="git stash apply;git stash clear;git stash"
+alias gl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias glog='git log --oneline --decorate --graph --all -n 20'
+alias gc="git clean -fdx -e \"*.iml\""
+alias gs="git stash apply;git stash clear;git stash"
 alias g5="git log -5 --graph --pretty=oneline --abbrev-commit"
+alias grs="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 
 # Security aliases
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
-alias date="date -R"
-alias gr="grep -inr --exclude-dir=build --exclude-dir=.svn --exclude-dir=.git --exclude=tags"
+alias rm="rm -i";
+alias cp="cp -i";
+alias gr="grep -inr --exclude-dir={build,.git,node_modules,dist,target}";
 alias fnd="find . -not -path \"*.git*\" -not -path \"*.svn*\""
